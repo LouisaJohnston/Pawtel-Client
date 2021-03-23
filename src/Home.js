@@ -34,7 +34,7 @@ function Home() {
     //   </header>
     // </div>
     <Router>
-      <header className="App-header">
+      <header>
         {/* include a handlelogout */}
         <Navbar currentUser={currentUser} />
       </header>
@@ -42,6 +42,7 @@ function Home() {
       <div>
         <Switch>
           {/* welcome page should display */}
+          <Route exact path='/' component={Welcome} />
           {/* <Route exact path='/' render={(props) => <Login {...props} />} /> */}
         </Switch>
       </div>

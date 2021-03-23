@@ -1,6 +1,13 @@
 .navbar {
-  color: black;
+  color:red;
+  text-decoration: none;
 }
+
+body {
+  background-color:rgb(240,235,210);
+}
+
+
 
 .App {
   text-align: center;
