@@ -3,6 +3,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import {Redirect} from 'react-router-dom'
 import profile from './Profile'
+import Profile from './Profile'
 
 export default function Login() {
     
@@ -25,11 +26,29 @@ export default function Login() {
 
             const response = await axios.post(`${process.env.REACT_APP_SRVER_URL}/api-v1/users/login`, requestBody)
             console.log(response)
+            
+            const {token} = response.data
+
+            // save the response from token to  a local storage
+            localStorage.setItem('jwtToken', token)
+            
+            // decode jwtTooken
+            const decoded = jwt_decode(token)
+            console.log(decoded)
+
+            props.setCurrentUser(decoded)
+
         }catch(error){
-            console.log(error)
+            if(error.response.status === 400){
+                setMessage(error.response.data.msg)
+            }else{
+
+                console.log(error)
+            }
         }
     }
-
+    if(props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
+    
     return (
         <div>
             <h1>Hello from Login Page</h1>
