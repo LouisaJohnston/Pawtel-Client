@@ -5,12 +5,17 @@ export default function Navbar(props) {
     const loggedIn = (
         <>
             <div>
-                <Link to='/pets'>
+                <Link to='/pet'>
                     pets
             </Link>
-                <Link to='/hotels'>
+                <Link to='/hotel'>
                     hotels
             </Link>
+
+                <Link to='/favorite'>
+                    favs
+            </Link>
+
             </div>
             <div>
                 <Link to='/'>
@@ -27,7 +32,7 @@ export default function Navbar(props) {
     const loggedOut = (
         <>
             <div>
-                <Link to='/hotels'>
+                <Link to='/hotel'>
                     hotels
             </Link>
             </div>
