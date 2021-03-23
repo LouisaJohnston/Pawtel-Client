@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom'
 import profile from './Profile'
 import Profile from './Profile'
 
-export default function Login() {
+export default function Login(props) {
     
     // home state for controlled form
     const [email, setEmail] = useState('')
@@ -48,7 +48,7 @@ export default function Login() {
         }
     }
     if(props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
-    
+
     return (
         <div>
             <h1>Hello from Login Page</h1>
