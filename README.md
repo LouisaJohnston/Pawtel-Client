@@ -14,15 +14,18 @@ Paw-tel is a full-stack application utiltizing MERN. In this application, users 
 ## Group Roles
 
 ### Dagm
-* user components 
-* auth
+* User Authentication
+* User component
+* Testing routes
 
 ### Kathy
-* some user backend
-* css/bootstrap
+* Setting up react and the navagation bar
+* boilerplate css 
+* git master
 
 ### Louisa
-* some user backend
+* Hotels and pets components
+* Testing routes
 * skeleton
 
 ## Sprints
@@ -99,16 +102,16 @@ DELETE | /hotels/:id | Removes a pet from the host's hotel list | Redirect to /h
 
 ## Database Schema
 
-![main](/public/img/schema.PNG)
+![main](/public/imgs/wireframes/schema.PNG)
 
 ## Wireframes
-![main](/public/img/petsprofile.png)
-![main](/public/img/petprofile.png)
-![main](/public/img/hotelprofile.png)
-![main](/public/img/hotellist.png)
-![main](/public/img/favoritehotels.png)
-![main](/public/img/hosthotelsprofile.png)
-![main](/public/img/hosthotelprofile.png)
+![main](/public/imgs/wireframes/petsprofile.png)
+![main](/public/imgs/wireframes/petprofile.png)
+![main](/public/imgs/wireframes/hotelprofile.png)
+![main](/public/imgs/wireframes/hotellist.png)
+![main](/public/imgs/wireframes/favoritehotels.png)
+![main](/public/imgs/wireframes/hosthotelsprofile.png)
+![main](/public/imgs/wireframes/hosthotelprofile.png)
 
 ## Technologies and APIs
 

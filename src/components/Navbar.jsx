@@ -4,26 +4,44 @@ import { Link } from 'react-router-dom'
 export default function Navbar(props) {
     const loggedIn = (
         <>
-            <Link to='/'>
-                <span onClick={props.handleLogout}>log out</span>
+            <div>
+                <Link to='/pets'>
+                    pets
             </Link>
+                <Link to='/hotels'>
+                    hotels
+            </Link>
+            </div>
+            <div>
+                <Link to='/'>
+                    <span onClick={props.handleLogout}>log out</span>
+                </Link>
 
-            <Link to='/profile'>
-                profile
+                <Link to='/profile'>
+                    profile
             </Link>
+            </div>
         </>
     )
 
     const loggedOut = (
         <>
-            <Link to='/register'>
-                register
+            <div>
+                <Link to='/hotels'>
+                    hotels
             </Link>
-            <br></br>
-            {/* use css to fix this instead of break line */}
-            <Link to='/login'>
-                login
+            </div>
+            <div>
+                <Link to='/register'>
+                    register
             </Link>
+                <br></br>
+                {/* use css to fix this instead of break line */}
+                <Link to='/login'>
+                    login
+            </Link>
+
+            </div>
         </>
 
     )
