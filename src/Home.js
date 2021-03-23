@@ -7,6 +7,9 @@ import Navbar from './components/Navbar'
 import Register from './components/Register'
 import Login from './components/Login'
 import Profile from './components/Profile'
+import Pet from './components/Pet'
+import Hotel from './components/Hotel'
+import Favorite from './components/Favorite'
 import './Home.css';
 
 function Home() {
@@ -50,6 +53,21 @@ function Home() {
           <Route
             path='/login'
             render={(props) => <Login {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route
+            path='/pet'
+            render={(props) => <Pet {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route
+            path='/hotel'
+            render={(props) => <Hotel {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route
+            path='/favorite'
+            render={(props) => <Favorite {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
