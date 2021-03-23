@@ -1,6 +1,8 @@
 .navbar {
-  color:red;
-  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(123, 192, 180);
+  padding: 5px;
 }
 
 body {

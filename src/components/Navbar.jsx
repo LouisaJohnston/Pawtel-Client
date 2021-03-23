@@ -40,7 +40,6 @@ export default function Navbar(props) {
                 <Link to='/register'>
                     register
             </Link>
-                <br></br>
                 {/* use css to fix this instead of break line */}
                 <Link to='/login'>
                     login
@@ -53,7 +52,6 @@ export default function Navbar(props) {
 
     return (
         <nav className="navbar">
-            {/* sends to home or user? */}
             <Link to='/'>
                 <h2>pawtel</h2>
             </Link>
