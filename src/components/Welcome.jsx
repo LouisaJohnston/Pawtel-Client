@@ -1,3 +1,5 @@
+// let welcomeImage = require('.../public/imgs/')
+
 export default function Welcome() {
 
     return (

@@ -23,16 +23,14 @@ function Home() {
     }
   }, [])
 
-  return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <Welcome />
-    //     <Navbar />
-    //     <Navbar />
-    //     <Navbar />
+  const handleLogout = () => {
+    if (localStorage.getItem('jwtToken')) {
+      localStorage.removeItem('jwtToken')
+      setCurrentUser(null)
+    }
+  }
 
-    //   </header>
-    // </div>
+  return (
     <Router>
       <header>
         {/* include a handlelogout */}
@@ -43,7 +41,23 @@ function Home() {
         <Switch>
           {/* welcome page should display */}
           <Route exact path='/' component={Welcome} />
-          {/* <Route exact path='/' render={(props) => <Login {...props} />} /> */}
+
+          <Route
+            path='/register'
+            render={(props) => <Register {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route
+            path='/login'
+            render={(props) => <Login {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route
+            path='/profile'
+            render={(props) => currentUser
+              ? <Profile {...props} handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+              : <Redirect to='/login' />}
+          />
         </Switch>
       </div>
     </Router>
