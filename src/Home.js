@@ -7,8 +7,8 @@ import Navbar from './components/Navbar'
 import Register from './components/Register'
 import Login from './components/Login'
 import Profile from './components/Profile'
-import Pet from './components/Pet'
-import Hotel from './components/Hotel'
+import Pet from './components/pets/PetList'
+import HotelList from './components/hotels/HotelList'
 import Favorite from './components/Favorite'
 import './Home.css';
 
@@ -62,7 +62,7 @@ function Home() {
 
           <Route
             path='/hotel'
-            render={(props) => <Hotel {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
