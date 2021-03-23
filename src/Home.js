@@ -13,6 +13,7 @@ import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
 import './Home.css';
 
+
 function Home() {
 
   const [currentUser, setCurrentUser] = useState(null)
