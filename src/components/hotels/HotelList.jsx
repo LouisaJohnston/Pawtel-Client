@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 export default function HotelList() {
@@ -8,7 +9,6 @@ export default function HotelList() {
         axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels`)
         .then(response => {
             setHotels(response.data)
-            console.log(response.data)
         })
     }, [])
 
@@ -19,7 +19,15 @@ export default function HotelList() {
             {hotels.map((hotel, i) => {
                 return(
                     <div key={i}>
-                        {hotel.hotel_name}
+                        <Link
+                            to={{
+                                pathname: 'hotelpage',
+                                state: hotel
+                            }}
+                            key={hotel.hotel_name}
+                        >
+                            {hotel.hotel_name}
+                        </Link>
                     </div>
                 )
             })}

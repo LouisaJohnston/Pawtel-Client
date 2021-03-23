@@ -9,6 +9,7 @@ import Login from './components/Login'
 import Profile from './components/Profile'
 import Pet from './components/pets/PetList'
 import HotelList from './components/hotels/HotelList'
+import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
 import './Home.css';
 
@@ -61,8 +62,13 @@ function Home() {
           />
 
           <Route
-            path='/hotel'
+            path='/hotels'
             render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route
+            path='/hotelpage'
+            render={(props) => <HotelDetails {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
