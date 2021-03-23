@@ -8,8 +8,8 @@ export default function Navbar(props) {
                 <Link to='/pet'>
                     pets
             </Link>
-                <Link to='/hotel'>
-                    hotels
+                <Link to='/hotels'>
+                    hotelsfff
             </Link>
 
                 <Link to='/favorite'>
@@ -32,7 +32,7 @@ export default function Navbar(props) {
     const loggedOut = (
         <>
             <div>
-                <Link to='/hotel'>
+                <Link to='/hotels'>
                     hotels
             </Link>
             </div>
