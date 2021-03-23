@@ -1,4 +1,4 @@
-# Paw-tel - Client
+# Pawtel - Client
 
 ## Description
 
