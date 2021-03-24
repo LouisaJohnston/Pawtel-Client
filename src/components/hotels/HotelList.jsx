@@ -6,10 +6,14 @@ export default function HotelList() {
     const [hotels, setHotels] = useState([])
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels`)
+        try {
+            axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels`)
             .then(response => {
                 setHotels(response.data)
             })
+        } catch (error) {
+            console.log(error)
+        }
     }, [])
 
 
