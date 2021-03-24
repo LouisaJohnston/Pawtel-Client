@@ -18,12 +18,16 @@ export default function PetList() {
 
     return (
         <div>
-            <h1>your pet list:</h1>
+            <h1>Your pet list:</h1>
             <div>
-                {pets.map((pet, index) => {
+                {pets.map((pet, i) => {
                     return (
-                        <div key={index}>
-                            <Link to={{ pathname: 'petpage', state: pet }} key={pet.pet_name}>
+                        <div key={i}>
+                            <Link to={{ 
+                                pathname: '/pet', 
+                                state: pet 
+                            }}
+                            key={pet.pet_name}>
                             </Link>
                         </div>
                     )
