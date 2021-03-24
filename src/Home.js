@@ -7,7 +7,8 @@ import Navbar from './components/Navbar'
 import Register from './components/Register'
 import Login from './components/Login'
 import Profile from './components/Profile'
-import Pet from './components/pets/PetList'
+import PetList from './components/pets/PetList'
+import PetDetails from './components/pets/PetDetails'
 import HotelList from './components/hotels/HotelList'
 import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
@@ -69,21 +70,14 @@ function Home() {
           />
 
           <Route
-            path='/pet'
-            render={(props) => <Pet {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
-
-          {/* <Route
-            path='/hotels'
-            render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            path='/pets'
+            render={(props) => <PetList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
-            path='/hotelpage'
-            render={(props) => <HotelDetails {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          /> */}
-
-          {/* Alt Routes */}
+            path='/pet'
+            render={({ location }) => <PetDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
 
           <Route
             path='/hotels'
@@ -95,7 +89,6 @@ function Home() {
             render={({ location }) => <HotelDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
-          {/* End Alt Routes */}
 
           <Route
             path='/favorite'
