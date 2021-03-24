@@ -7,9 +7,9 @@ export default function HotelList() {
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels`)
-        .then(response => {
-            setHotels(response.data)
-        })
+            .then(response => {
+                setHotels(response.data)
+            })
     }, [])
 
 
@@ -17,7 +17,7 @@ export default function HotelList() {
         <div>
             <h1>Browse dog hotels in your area:</h1>
             {hotels.map((hotel, i) => {
-                return(
+                return (
                     <div key={i}>
                         <Link
                             to={{
