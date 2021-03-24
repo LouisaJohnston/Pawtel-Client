@@ -1,15 +1,14 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(123, 192, 180);
-  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.712);
+  padding: 10px;
 }
+
 
 body {
-  background-color:rgb(240,235,210);
+  background-color:rgb(216, 225, 222);
 }
-
-
 
 .App {
   text-align: center;
@@ -27,7 +26,7 @@ body {
 }
 
 .App-header {
-  background-color:rgb(240,235,210);
+  background-color:rgb(216, 225, 222);
   min-height: 100vh;
   display: flex;
   flex-direction: column;

@@ -38,13 +38,11 @@ function Home() {
   return (
     <Router>
       <header>
-        {/* include a handlelogout */}
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
 
-      <div>
+      <div className="route">
         <Switch>
-          {/* welcome page should display */}
           <Route exact path='/' component={Welcome} />
 
           <Route
