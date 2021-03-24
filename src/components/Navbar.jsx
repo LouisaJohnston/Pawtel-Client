@@ -4,42 +4,43 @@ export default function Navbar(props) {
     const loggedIn = (
         <>
             <div className="navbar">
-                <Link to='/pet' id="route-link">
+                <Link to='/pets'>
                     pets
             </Link>
-                <Link to='/hotels' id="route-link">
+                <Link to='/hotels'>
                     hotels
             </Link>
 
-                <Link to='/favorite' id="route-link">
+                <Link to='/favorite'>
                     favs
             </Link>
 
             </div>
-            <div className="navbar" id="route-link">
+            <div className="navbar">
                 <Link to='/'>
                     <span onClick={props.handleLogout}>log out</span>
                 </Link>
 
-                <Link to='/profile' id="route-link">
+                <Link to='/profile'>
                     profile
             </Link>
             </div>
         </>
     )
 
+
     const loggedOut = (
         <>
             <div>
-                <Link to='/hotels' id="route-link">
+                <Link to='/hotels'>
                     hotels
             </Link>
-                <Link to='/register' id="route-link">
+                <Link to='/register'>
                     register
             </Link>
                 
 
-                <Link to='/login' id="route-link">
+                <Link to='/login'>
                     login
             </Link>
                 
@@ -51,7 +52,7 @@ export default function Navbar(props) {
 
     return (
         <nav className="navbar">
-            <Link to='/' id="route-link">
+            <Link to='/'>
                 <h2>pawtel</h2>
             </Link>
 

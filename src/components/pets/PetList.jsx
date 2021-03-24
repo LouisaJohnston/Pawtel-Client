@@ -8,8 +8,8 @@ export default function PetList() {
     useEffect(() => {
         try {
             axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`)
-                .then(res => {
-                    setPets(res.data)
+                .then(response => {
+                    setPets(response.data)
                 })
         } catch (error) {
             console.log(error)
@@ -18,12 +18,18 @@ export default function PetList() {
 
     return (
         <div>
-            <h1>your pet list:</h1>
+            <h1>Your pet list:</h1>
             <div>
-                {pets.map((pet, index) => {
+                {pets.map((pet, i) => {
                     return (
-                        <div key={index}>
-                            <Link to={{ pathname: 'petpage', state: pet }} key={pet.pet_name}>
+                        <div key={i}>
+                            <Link to={{ 
+                                pathname: '/pet', 
+                                state: pet 
+                            }}
+                            key={pet.pet_name}
+                            >
+                                {pet.pet_name}
                             </Link>
                         </div>
                     )
