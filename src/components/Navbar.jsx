@@ -1,28 +1,27 @@
 import { Link } from 'react-router-dom'
-// NEED TO ADD PETS AND HOTELS LINKS
 
 export default function Navbar(props) {
     const loggedIn = (
         <>
-            <div>
-                <Link to='/pet'>
+            <div className="navbar">
+                <Link to='/pet' id="route-link">
                     pets
             </Link>
-                <Link to='/hotels'>
-                    hotelsfff
+                <Link to='/hotels' id="route-link">
+                    hotels
             </Link>
 
-                <Link to='/favorite'>
+                <Link to='/favorite' id="route-link">
                     favs
             </Link>
 
             </div>
-            <div>
+            <div className="navbar" id="route-link">
                 <Link to='/'>
                     <span onClick={props.handleLogout}>log out</span>
                 </Link>
 
-                <Link to='/profile'>
+                <Link to='/profile' id="route-link">
                     profile
             </Link>
             </div>
@@ -32,27 +31,28 @@ export default function Navbar(props) {
     const loggedOut = (
         <>
             <div>
-                <Link to='/hotels'>
+                <Link to='/hotels' id="route-link">
                     hotels
             </Link>
-            </div>
-            <div>
-                <Link to='/register'>
+                <Link to='/register' id="route-link">
                     register
             </Link>
-                {/* use css to fix this instead of break line */}
-                <Link to='/login'>
+
+                <Link to='/login' id="route-link">
                     login
             </Link>
-
+                <Link to='/HostLogin'>
+                    Host
+            </Link>
             </div>
+
         </>
 
     )
 
     return (
         <nav className="navbar">
-            <Link to='/'>
+            <Link to='/' id="route-link">
                 <h2>pawtel</h2>
             </Link>
 

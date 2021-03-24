@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import{useState} from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-import { Redirect } from 'react-router-dom'
-import Profile from './Profile'
+import {Redirect} from 'react-router-dom'
+import HostPage from './HostPage'
 
 
-export default function Login(props) {
-
+export default function HostLogin(props) {
+    
     // home state for controlled form
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -16,7 +16,7 @@ export default function Login(props) {
 
     // handeling submit for the form
     const handleSubmit = async e => {
-        try {
+        try{
             e.preventDefault()
 
             const requestBody = {
@@ -24,51 +24,51 @@ export default function Login(props) {
                 password: password
             }
 
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, requestBody)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/hosts/login`, requestBody)
             console.log(response)
-
-            const { token } = response.data
+            
+            const {token} = response.data
 
             // save the response from token to  a local storage
             localStorage.setItem('jwtToken', token)
-
+            
             // decode jwtTooken
             const decoded = jwt_decode(token)
             console.log(decoded)
 
             props.setCurrentUser(decoded)
 
-        } catch (error) {
-            if (error.response.status === 400) {
+        }catch(error){
+            if(error.response.status === 400){
                 setMessage(error.response.data.msg)
-            } else {
+            }else{
 
                 console.log(error)
             }
         }
     }
-    if (props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
+    if(props.currentUser) return <Redirect to='/HostPage' component={HostPage} currentUser={props.currentUser} />
 
     return (
         <div>
-            <h1>Hello from Login Page</h1>
+            <h1>Hello from HostLogin Page</h1>
             <p>{message}</p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email-input">Email:</label>
-                <input
-                    type="email"
+                <input 
+                    type="email"  
                     id="email-input"
                     placeholder='email'
                     onChange={e => setEmail(e.target.value)}
-                    value={email}
+                    value={email}    
                 />
                 <label htmlFor="password-input">Password:</label>
-                <input
-                    type="password"
+                <input 
+                    type="password"  
                     id="password-input"
                     placeholder='password'
                     onChange={e => setPassword(e.target.value)}
-                    value={password}
+                    value={password}    
                 />
                 <input type="submit" value="Login"/>
             </form>
