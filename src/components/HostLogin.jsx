@@ -2,10 +2,10 @@ import{useState} from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import {Redirect} from 'react-router-dom'
-import Profile from './Profile'
+import HostPage from './HostPage'
 
 
-export default function Login(props) {
+export default function HostLogin(props) {
     
     // home state for controlled form
     const [email, setEmail] = useState('')
@@ -24,7 +24,7 @@ export default function Login(props) {
                 password: password
             }
 
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, requestBody)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/hosts/login`, requestBody)
             console.log(response)
             
             const {token} = response.data
@@ -47,11 +47,11 @@ export default function Login(props) {
             }
         }
     }
-    if(props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
+    if(props.currentUser) return <Redirect to='/HostPage' component={HostPage} currentUser={props.currentUser} />
 
     return (
         <div>
-            <h1>Hello from Login Page</h1>
+            <h1>Hello from HostLogin Page</h1>
             <p>{message}</p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email-input">Email:</label>

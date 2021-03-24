@@ -45,6 +45,9 @@ export default function Navbar(props) {
                 <Link to='/login'>
                     login
             </Link>
+                <Link to='/HostLogin'>
+                    Host
+            </Link>
 
             </div>
         </>
