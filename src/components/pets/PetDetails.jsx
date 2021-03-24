@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function PetDetails(props) {
     return (
         <div key={props.location.state.pet}>
@@ -7,6 +9,7 @@ export default function PetDetails(props) {
             <h4> {props.location.state.weight} </h4>
             <h4> {props.location.state.special_needs} </h4>
             <h4> {props.location.state.medications} </h4>
+            <Link to='/pets'>Back to your pets</Link>
         </div>
     )
 }
