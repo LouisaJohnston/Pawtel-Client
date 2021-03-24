@@ -18,10 +18,10 @@ export default function HotelList() {
             <h1>Browse dog hotels in your area:</h1>
             {hotels.map((hotel, i) => {
                 return(
-                    <div key={i}>
+                    <div>
                         <Link
                             to={{
-                                pathname: 'hotelpage',
+                                pathname: '/hotelpage',
                                 state: hotel
                             }}
                             key={hotel.hotel_name}
