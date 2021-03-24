@@ -17,16 +17,30 @@ export default function Navbar(props) {
 
             </div>
             <div className="navbar">
+
+                <Link to='/profile'>
+                    profile
+                    </Link>
+
                 <Link to='/'>
                     <span onClick={props.handleLogout}>log out</span>
                 </Link>
 
-                <Link to='/profile'>
-                    profile
-            </Link>
+            </div>
+        </>
+    )
+
+    const hostLoggedIn = (
+        <>
+            <div className="navbar">
+
                 <Link to='/hostpage'>
-                    hostpage
+                    host profile
             </Link>
+
+                <Link to='/'>
+                    <span onClick={props.handleLogout}>log out</span>
+                </Link>
             </div>
         </>
     )
@@ -41,16 +55,12 @@ export default function Navbar(props) {
                 <Link to='/register'>
                     register
             </Link>
-                
-
                 <Link to='/login'>
                     login
             </Link>
-                
             </div>
 
         </>
-
     )
 
     return (
