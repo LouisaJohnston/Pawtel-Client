@@ -9,6 +9,7 @@ import Login from './components/Login'
 import Profile from './components/Profile'
 import PetList from './components/pets/PetList'
 import PetDetails from './components/pets/PetDetails'
+import NewPet from './components/pets/NewPet'
 import HotelList from './components/hotels/HotelList'
 import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
@@ -67,6 +68,11 @@ function Home() {
           <Route
             path='/pet'
             render={({ location }) => <PetDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          <Route
+            path='/newpet'
+            render={({ location }) => <NewPet location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route

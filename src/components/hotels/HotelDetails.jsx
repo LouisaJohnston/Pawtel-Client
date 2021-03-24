@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function HotelDetails(props) {
     return (
@@ -9,6 +9,7 @@ export default function HotelDetails(props) {
             <h4> {props.location.state.weight_limit_lb} </h4>
             <h4> {props.location.state.phone_number} </h4>
             <h4> {props.location.state.email} </h4>
+            <Link to='/hotels'>Back to hotels</Link>
         </div>
     )
 }
