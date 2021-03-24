@@ -73,7 +73,7 @@ function Home() {
             render={(props) => <Pet {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
-          <Route
+          {/* <Route
             path='/hotels'
             render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
@@ -81,7 +81,21 @@ function Home() {
           <Route
             path='/hotelpage'
             render={(props) => <HotelDetails {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          /> */}
+
+          {/* Alt Routes */}
+
+          <Route
+            path='/hotels'
+            render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
+
+          <Route
+            path='/hotel'
+            render={({ location }) => <HotelDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+
+          {/* End Alt Routes */}
 
           <Route
             path='/favorite'

@@ -2,8 +2,13 @@
 
 export default function HotelDetails(props) {
     return (
-        <div key={props.hotel}>
-            <h2> wooo {props.hotel_name} </h2>
+        <div key={props.location.state.hotel}>
+            <h2> {props.location.state.hotel_name} </h2>
+            <h4> {props.location.state.zipcode} </h4>
+            <h4> {props.location.state.specialty} </h4>
+            <h4> {props.location.state.weight_limit_lb} </h4>
+            <h4> {props.location.state.phone_number} </h4>
+            <h4> {props.location.state.email} </h4>
         </div>
     )
 }

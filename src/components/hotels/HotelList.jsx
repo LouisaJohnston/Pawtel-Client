@@ -21,7 +21,7 @@ export default function HotelList() {
                     <div key={i}>
                         <Link
                             to={{
-                                pathname: 'hotelpage',
+                                pathname: '/hotel',
                                 state: hotel
                             }}
                             key={hotel.hotel_name}
