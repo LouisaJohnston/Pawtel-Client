@@ -4,7 +4,7 @@ export default function Navbar(props) {
     const loggedIn = (
         <>
             <div className="navbar">
-                <Link to='/pet'>
+                <Link to='/pets'>
                     pets
             </Link>
                 <Link to='/hotels'>
