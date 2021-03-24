@@ -1,15 +1,23 @@
 .navbar {
-  color:red;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(245, 243, 243, 0.884);
+  padding: 0px;
+}
+
+#route-link {
+  color: black;
+  font-size: 20px;;
   text-decoration: none;
+  margin: 5px;
 }
 
 body {
-  background-color:rgb(240,235,210);
+  background-color:white;
+  font-family: 'Crimson Text', serif;
 }
 
-
-
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -25,7 +33,7 @@ body {
 }
 
 .App-header {
-  background-color:rgb(240,235,210);
+  background-color:rgb(216, 225, 222);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,17 +41,5 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
-}
+} */
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -1,7 +1,7 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import Profile from './Profile'
 
 export default function Register(props) {
@@ -14,7 +14,7 @@ export default function Register(props) {
     const [message, setMessage] = ('')
 
     const handleSubmit = async (e) => {
-        try{
+        try {
             e.preventDefault()
 
             // to post to the backend db
@@ -25,9 +25,9 @@ export default function Register(props) {
             }
 
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
-                console.log(response)
+            console.log(response)
             // save the response to local storage
-            const {token} = response.data
+            const { token } = response.data
             localStorage.setItem('jwtToken', token)
 
             // decode the jwt
@@ -36,13 +36,13 @@ export default function Register(props) {
             // from jwt payload, seting the current user to be loged in in home.js
             props.setCurrentUser(decode)
 
-        }catch(error){
+        } catch (error) {
             // if the response is invalid grab the message and set it to be msg for the server
-            if (error.response.status === 400){
-                
+            if (error.response.status === 400) {
+
                 setMessage(error.response.data.msg)
-            }else{
-                
+            } else {
+
                 console.log(error)
             }
 
@@ -51,14 +51,14 @@ export default function Register(props) {
 
     }
     // if user is logged in, redirect to pfofile page
-    if(props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
+    if (props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
     return (
         <div>
             <h1>Hello from Register</h1>
             <p>{message}</p>
-            <form onSubmit = {handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="name-input">Name:</label>
-                <input 
+                <input
                     id="name-input"
                     type="text"
                     placeholder="enter your name"
@@ -66,7 +66,7 @@ export default function Register(props) {
                     value={name}
                 />
                 <label htmlFor="email-input">email:</label>
-                <input 
+                <input
                     id="email-input"
                     type="text"
                     placeholder="enter your email"
@@ -74,14 +74,14 @@ export default function Register(props) {
                     value={email}
                 />
                 <label htmlFor="password-input">password:</label>
-                <input 
+                <input
                     id="password-input"
                     type="password"
                     placeholder="enter your password"
                     onChange={e => setPassword(e.target.value)}
                     value={password}
                 />
-                <input type="submit" value="Register"/>
+                <input type="submit" value="Register" />
             </form>
         </div>
     )

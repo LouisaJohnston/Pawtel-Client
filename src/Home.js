@@ -15,6 +15,7 @@ import HostLogin from './components/HostLogin'
 import HostPage from './components/HostPage'
 import './Home.css';
 
+
 function Home() {
 
   const [currentUser, setCurrentUser] = useState(null)
@@ -41,13 +42,11 @@ function Home() {
 
     <Router>
       <header>
-        {/* include a handlelogout */}
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
 
-      <div>
+      <div className="route">
         <Switch>
-          {/* welcome page should display */}
           <Route exact path='/' component={Welcome} />
 
           <Route

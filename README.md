@@ -133,3 +133,5 @@ DELETE | /hotels/:id | Removes a pet from the host's hotel list | Redirect to /h
 * Search by location
 
 ## Resources
+1. Materials-ui | https://material-ui.com/
+2. NavLink | https://reactrouter.com/web/api/NavLink
