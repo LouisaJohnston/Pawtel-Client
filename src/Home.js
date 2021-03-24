@@ -11,9 +11,7 @@ import Pet from './components/pets/PetList'
 import HotelList from './components/hotels/HotelList'
 import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
-import HostLogin from './components/HostLogin'
 import HostPage from './components/HostPage'
-import HostRegister from './components/HostRegister'
 import './Home.css';
 
 
@@ -54,18 +52,10 @@ function Home() {
             path='/register'
             render={(props) => <Register {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
-          <Route
-            path='/hostregister'
-            render={(props) => <HostRegister {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
 
           <Route
             path='/login'
             render={(props) => <Login {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
-          <Route
-            path='/hostlogin'
-            render={(props) => <HostLogin {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
