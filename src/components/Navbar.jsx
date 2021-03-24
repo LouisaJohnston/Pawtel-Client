@@ -24,6 +24,9 @@ export default function Navbar(props) {
                 <Link to='/profile'>
                     profile
             </Link>
+                <Link to='/hostpage'>
+                    hostpage
+            </Link>
             </div>
         </>
     )
