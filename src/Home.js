@@ -13,6 +13,7 @@ import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
 import HostLogin from './components/HostLogin'
 import HostPage from './components/HostPage'
+import HostRegister from './components/HostRegister'
 import './Home.css';
 
 
@@ -52,6 +53,10 @@ function Home() {
           <Route
             path='/register'
             render={(props) => <Register {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+          <Route
+            path='/hostregister'
+            render={(props) => <HostRegister {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
