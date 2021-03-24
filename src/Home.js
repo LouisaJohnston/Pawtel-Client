@@ -11,6 +11,8 @@ import Pet from './components/pets/PetList'
 import HotelList from './components/hotels/HotelList'
 import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
+import HostLogin from './components/HostLogin'
+import HostPage from './components/HostPage'
 import './Home.css';
 
 
@@ -36,6 +38,8 @@ function Home() {
   }
 
   return (
+    <div>
+
     <Router>
       <header>
         <Navbar currentUser={currentUser} handleLogout={handleLogout} />
@@ -53,6 +57,10 @@ function Home() {
           <Route
             path='/login'
             render={(props) => <Login {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+          <Route
+            path='/hostlogin'
+            render={(props) => <HostLogin {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
@@ -81,9 +89,16 @@ function Home() {
               ? <Profile {...props} handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />
               : <Redirect to='/login' />}
           />
+          <Route
+            path='/hostpage'
+            render={(props) => currentUser
+              ? <HostPage {...props} handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+              : <Redirect to='/hostlogin' />}
+          />
         </Switch>
       </div>
     </Router>
+    </div>
 
   )
 }
