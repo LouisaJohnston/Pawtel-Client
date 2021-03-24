@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import Profile from './Profile'
 
 export default function Register(props) {
@@ -23,7 +23,8 @@ export default function Register(props) {
             const requestBody = {
                 name: name,
                 email: email,
-                password: password
+                password: password,
+                isHost: false
             }
 
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
@@ -60,10 +61,11 @@ export default function Register(props) {
             const requestBody = {
                 name: name,
                 email: email,
-                password: password
+                password: password,
+                isHost: true
             }
 
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/hosts/register`, requestBody)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
             console.log(response)
             // save the response to local storage
             const { token } = response.data
@@ -90,65 +92,65 @@ export default function Register(props) {
 
     }
 
-   
+
 
     const userForm = <form onSubmit={handleSubmit}>
-                        <label htmlFor="name-input">userName:</label>
-                        <input
-                            id="name-input"
-                            type="text"
-                            placeholder="enter your name"
-                            onChange={e => setName(e.target.value)}
-                            value={name}
-                        />
-                        <label htmlFor="email-input">email:</label>
-                        <input
-                            id="email-input"
-                            type="text"
-                            placeholder="enter your email"
-                            onChange={e => setEmail(e.target.value)}
-                            value={email}
-                        />
-                        <label htmlFor="password-input">password:</label>
-                        <input
-                            id="password-input"
-                            type="password"
-                            placeholder="enter your password"
-                            onChange={e => setPassword(e.target.value)}
-                            value={password}
-                        />
-                        <input type="submit" value="Register" />
-    
-                    </form>
+        <label htmlFor="name-input">userName:</label>
+        <input
+            id="name-input"
+            type="text"
+            placeholder="enter your name"
+            onChange={e => setName(e.target.value)}
+            value={name}
+        />
+        <label htmlFor="email-input">email:</label>
+        <input
+            id="email-input"
+            type="text"
+            placeholder="enter your email"
+            onChange={e => setEmail(e.target.value)}
+            value={email}
+        />
+        <label htmlFor="password-input">password:</label>
+        <input
+            id="password-input"
+            type="password"
+            placeholder="enter your password"
+            onChange={e => setPassword(e.target.value)}
+            value={password}
+        />
+        <input type="submit" value="Register" />
+
+    </form>
 
     const hostForm = <form onSubmit={handleHostSubmit}>
-                        <label htmlFor="name-input">Name:</label>
-                        <input
-                            id="name-input"
-                            type="text"
-                            placeholder="enter your name"
-                            onChange={e => setName(e.target.value)}
-                            value={name}
-                        />
-                        <label htmlFor="email-input">email:</label>
-                        <input
-                            id="email-input"
-                            type="text"
-                            placeholder="enter your email"
-                            onChange={e => setEmail(e.target.value)}
-                            value={email}
-                        />
-                        <label htmlFor="password-input">password:</label>
-                        <input
-                            id="password-input"
-                            type="password"
-                            placeholder="enter your password"
-                            onChange={e => setPassword(e.target.value)}
-                            value={password}
-                        />
-                        <input type="submit" value="Register" />
-    
-                    </form>
+        <label htmlFor="name-input">Name:</label>
+        <input
+            id="name-input"
+            type="text"
+            placeholder="enter your name"
+            onChange={e => setName(e.target.value)}
+            value={name}
+        />
+        <label htmlFor="email-input">email:</label>
+        <input
+            id="email-input"
+            type="text"
+            placeholder="enter your email"
+            onChange={e => setEmail(e.target.value)}
+            value={email}
+        />
+        <label htmlFor="password-input">password:</label>
+        <input
+            id="password-input"
+            type="password"
+            placeholder="enter your password"
+            onChange={e => setPassword(e.target.value)}
+            value={password}
+        />
+        <input type="submit" value="Register" />
+
+    </form>
 
 
 
@@ -158,7 +160,7 @@ export default function Register(props) {
         <div>
             <h1>Hello from Register</h1>
             <p>{message}</p>
-            {isHostSelected ? hostForm : userForm }
+            {isHostSelected ? hostForm : userForm}
             <button onClick={e => setIsHostSelected(!isHostSelected)}>Host</button>
         </div>
     )

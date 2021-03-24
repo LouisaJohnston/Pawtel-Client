@@ -13,7 +13,10 @@
   margin: 5px;
 }
 
-
+.navbar a:hover {
+  text-decoration: underline;
+  color: rgba(52, 70, 152);
+}
 
 body {
   background-color:white;
