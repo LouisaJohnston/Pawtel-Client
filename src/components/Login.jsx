@@ -24,7 +24,7 @@ export default function Login(props) {
                 password: password
             }
 
-            const response = await axios.post(`${process.env.REACT_APP_SRVER_URL}/api-v1/users/login`, requestBody)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, requestBody)
             console.log(response)
 
             const { token } = response.data
@@ -52,6 +52,7 @@ export default function Login(props) {
     return (
         <div>
             <h1>Hello from Login Page</h1>
+            <p>{message}</p>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email-input">Email:</label>
                 <input
@@ -69,6 +70,7 @@ export default function Login(props) {
                     onChange={e => setPassword(e.target.value)}
                     value={password}
                 />
+                <input type="submit" value="Login"/>
             </form>
         </div>
     )
