@@ -39,7 +39,7 @@ function Home() {
     <Router>
       <header>
         {/* include a handlelogout */}
-        <Navbar currentUser={currentUser} />
+        <Navbar currentUser={currentUser} handleLogout={handleLogout} />
       </header>
 
       <div>
