@@ -38,16 +38,12 @@ export default function Navbar(props) {
                 <Link to='/register'>
                     register
             </Link>
-                <Link to='/hostregister'>
-                    hostregister
-            </Link>
+                
 
                 <Link to='/login'>
                     login
             </Link>
-                <Link to='/HostLogin'>
-                    Host
-            </Link>
+                
             </div>
 
         </>
