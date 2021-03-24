@@ -3,6 +3,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
 import Profile from './Profile'
+import HostPage from './HostPage'
 
 
 export default function Login(props) {
@@ -80,8 +81,8 @@ export default function Login(props) {
             }
         }
     }
-
-const userLogin = <form onSubmit={handleSubmit}>
+    
+    const userLogin = <form onSubmit={handleSubmit}>
                     <label htmlFor="email-input">userEmail:</label>
                     <input
                         type="email"
@@ -120,10 +121,12 @@ const hostLogin = <form onSubmit={handleHostSubmit}>
                     <input type="submit" value="Login"/>
                     </form>
 
-    if (props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
 
-    return (
-        <div>
+if (props.currentUser && isHostSelected) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
+if (props.currentUser && !isHostSelected) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
+
+return (
+    <div>
             <h1>Hello from Login Page</h1>
             <p>{message}</p>
             {isHostSelected ? hostLogin : userLogin }
