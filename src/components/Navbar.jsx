@@ -65,6 +65,9 @@ export default function Navbar(props) {
         </>
     )
 
+    if (props.currentUser && props.currentUser.isHost) return hostLoggedIn
+
+
     return (
         <nav className="navbar">
             <Link to='/'>
