@@ -4,47 +4,32 @@ import axios from 'axios'
 
 export default function PetList() {
     const [pets, setPets] = useState([])
-    const [newPetNameInput, setNewPetNameInput] = useState ('')
-
-    // useEffect(() => {
-    //     try {
-    //         axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`)
-    //             .then(response => {
-    //                 setPets(response.data)
-    //             })
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }, [])
+    const [message, setMessage] = useState('')
 
     useEffect(() => {
         try {
-            axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`)
-                .then(response => {
-                    setPets(response.data)
+            const token = localStorage.getItem('jwtToken')
+            const authHeaders = {
+                'Authorization': token
+              }
+            axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`, { headers: authHeaders })
+            .then(response => {
+                    console.log(response.data.pets)
+                    setMessage(response.data.msg)
+                    setPets(response.data.pets)
                 })
         } catch (error) {
+            if(error.response.status === 400){
+                setMessage(error.response.data.msg)
+            }
             console.log(error)
         }
     }, [])
 
-    const  handleNewPetNameChange = e => {
-        setNewPetNameInput(e.target.value)
-    }
-
-    const handleNewPetSubmit = async(e) => {
-        e.preventDefault()
-        try {
-            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`)
-        } catch (err) {
-            console.log(err)
-        }
-
-    }
-
     return (
         <div>
             <h1>Your pet list:</h1>
+            <p>{message}</p>
             <div>
                 {pets.map((pet, i) => {
                     return (
@@ -63,9 +48,7 @@ export default function PetList() {
             </div>
             <Link to={{
                 pathname: '/newpet',
-                state: pets
             }}
-            key={pets}
             >
                 Add new pet
             </Link>
