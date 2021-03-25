@@ -15,6 +15,7 @@ import HotelDetails from './components/hotels/HotelDetails'
 import Favorite from './components/Favorite'
 import HostPage from './components/HostPage'
 import './Home.css';
+import HostHotel from './components/hotels/HostHotel'
 
 
 function Home() {
@@ -78,6 +79,10 @@ function Home() {
           <Route
             path='/hotels'
             render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+          />
+          <Route
+            path='/hosthotels'
+            render={(props) => <HostHotel {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
           />
 
           <Route
