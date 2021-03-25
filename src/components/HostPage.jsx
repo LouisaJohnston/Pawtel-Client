@@ -20,6 +20,7 @@ export default function HostPage(props) {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/auth-locked`, { headers: authHeaders })
                 console.log(response.data)
                 setMessage(response.data.msg)
+                
 
             } catch (error) {
                 // display error if response status is 400
@@ -39,7 +40,7 @@ export default function HostPage(props) {
     return (
         <div>
             <h1>Hello {props.currentUser.name}!</h1>
-            <h5>Email address: {props.currentUser.email}</h5>
+            <h5>Email address: {props.currentUser.email}</h5>           
             <p>{message}</p>
         </div>
     )
