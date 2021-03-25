@@ -3,6 +3,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
 import Profile from './Profile'
+import HostPage from './HostPage'
 
 export default function Register(props) {
     // some state for the controlled form
@@ -23,7 +24,7 @@ export default function Register(props) {
                 name: name,
                 email: email,
                 password: password,
-                isHost: false
+                isHost: isHostSelected
             }
 
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
@@ -52,115 +53,133 @@ export default function Register(props) {
         }
 
     }
-    const handleHostSubmit = async (e) => {
-        try {
-            e.preventDefault()
+    // const handleHostSubmit = async (e) => {
+    //     try {
+    //         e.preventDefault()
 
-            // to post to the backend db
-            const requestBody = {
-                name: name,
-                email: email,
-                password: password,
-                isHost: true
-            }
+    //         // to post to the backend db
+    //         const requestBody = {
+    //             name: name,
+    //             email: email,
+    //             password: password,
+    //             isHost: true
+    //         }
 
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
-            console.log(response)
-            // save the response to local storage
-            const { token } = response.data
-            localStorage.setItem('jwtToken', token)
+    //         const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
+    //         console.log(response)
+    //         // save the response to local storage
+    //         const { token } = response.data
+    //         localStorage.setItem('jwtToken', token)
 
-            // decode the jwt
-            const decode = jwt_decode(token)
+    //         // decode the jwt
+    //         const decode = jwt_decode(token)
 
-            // from jwt payload, seting the current user to be loged in in home.js
-            props.setCurrentUser(decode)
+    //         // from jwt payload, seting the current user to be loged in in home.js
+    //         props.setCurrentUser(decode)
 
-        } catch (error) {
-            // if the response is invalid grab the message and set it to be msg for the server
-            if (error.response.status === 400) {
+    //     } catch (error) {
+    //         // if the response is invalid grab the message and set it to be msg for the server
+    //         if (error.response.status === 400) {
 
-                setMessage(error.response.data.msg)
-            } else {
+    //             setMessage(error.response.data.msg)
+    //         } else {
 
-                console.log(error)
-            }
+    //             console.log(error)
+    //         }
 
 
-        }
+    //     }
 
-    }
+    // }
 
 
 
     const userForm = <form onSubmit={handleSubmit}>
-        <label htmlFor="name-input">userName:</label>
-        <input
-            id="name-input"
-            type="text"
-            placeholder="enter your name"
-            onChange={e => setName(e.target.value)}
-            value={name}
-        />
-        <label htmlFor="email-input">email:</label>
-        <input
-            id="email-input"
-            type="text"
-            placeholder="enter your email"
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-        />
-        <label htmlFor="password-input">password:</label>
-        <input
-            id="password-input"
-            type="password"
-            placeholder="enter your password"
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-        />
-        <input type="submit" value="Register" />
+        <div className="form-group">
+            <div classname="form">
+                <label htmlFor="name-input">Name: </label>
+                <input
+                    id="name-input"
+                    type="text"
+                    placeholder="enter your name"
+                    onChange={e => setName(e.target.value)}
+                    value={name}
+                />
+            </div>
+
+            <div classname="form">
+                <label htmlFor="email-input">Email: </label>
+                <input
+                    id="email-input"
+                    type="text"
+                    placeholder="enter your email"
+                    onChange={e => setEmail(e.target.value)}
+                    value={email}
+                />
+
+            </div>
+
+            <div classname="form">
+                <label htmlFor="password-input">Password: </label>
+                <input
+                    id="password-input"
+                    type="password"
+                    placeholder="enter your password"
+                    onChange={e => setPassword(e.target.value)}
+                    value={password}
+                />
+            </div>
+
+
+            <input type="submit" value="Register" />
+
+        </div>
 
     </form>
 
-    const hostForm = <form onSubmit={handleHostSubmit}>
-        <label htmlFor="name-input">Name:</label>
-        <input
-            id="name-input"
-            type="text"
-            placeholder="enter your name"
-            onChange={e => setName(e.target.value)}
-            value={name}
-        />
-        <label htmlFor="email-input">email:</label>
-        <input
-            id="email-input"
-            type="text"
-            placeholder="enter your email"
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-        />
-        <label htmlFor="password-input">password:</label>
-        <input
-            id="password-input"
-            type="password"
-            placeholder="enter your password"
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-        />
-        <input type="submit" value="Register" />
+    // const hostForm = <form onSubmit={handleHostSubmit}>
+    //     <label htmlFor="name-input">Name:</label>
+    //     <input
+    //         id="name-input"
+    //         type="text"
+    //         placeholder="enter your name"
+    //         onChange={e => setName(e.target.value)}
+    //         value={name}
+    //     />
+    //     <label htmlFor="email-input">email:</label>
+    //     <input
+    //         id="email-input"
+    //         type="text"
+    //         placeholder="enter your email"
+    //         onChange={e => setEmail(e.target.value)}
+    //         value={email}
+    //     />
+    //     <label htmlFor="password-input">password:</label>
+    //     <input
+    //         id="password-input"
+    //         type="password"
+    //         placeholder="enter your password"
+    //         onChange={e => setPassword(e.target.value)}
+    //         value={password}
+    //     />
+    //     <input type="submit" value="Register" />
 
-    </form>
+    // </form>
 
 
-
+    if (props.currentUser && props.currentUser.isHost) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
     // if user is logged in, redirect to pfofile page
     if (props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
     return (
-        <div>
-            <h1>Hello from Register</h1>
+        <div className="form-container">
+            <h1>Registration Page</h1>
             <p>{message}</p>
-            {isHostSelected ? hostForm : userForm}
-            <button onClick={e => setIsHostSelected(!isHostSelected)}>Host</button>
+            {isHostSelected ? <p>You are signing up as a host</p> : <p>You are signing up as a user</p>}
+
+            {userForm}
+
+
+            <button onClick={e => setIsHostSelected(!isHostSelected)}>Switch</button>
         </div>
     )
 

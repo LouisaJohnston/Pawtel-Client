@@ -1,0 +1,30 @@
+kathy's notes:
+
+to do
+- create favs hotels (create it in the hotels component?)
+- change up navbar view as a host
+
+done
+- style forms
+- redirect host to hostpage 
+
+
+favs
+--create an AddFavorites component?
+
+--in hotel.js?
+const [favorites, setFavorites] = useState([])
+
+const AddFavoriteHotels = (hotel) => {
+    const newFavoriteList = [...favorites, hotels]
+    setFavorites(newFavoriteList)
+}
+
+in the return:
+inside ?
+<HotelList ?(or whatever Hotel is) >
+handleFavoritesClick={AddFavoriteHotels}
+favoriteComponent={AddFavorites}
+
+--in HotelList
+include <FavoriteComponent>
