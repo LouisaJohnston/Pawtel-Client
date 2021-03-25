@@ -38,9 +38,8 @@ export default function HostPage(props) {
 
     return (
         <div>
-            <h1>Hello from HostPage</h1>
-            <h4>hello {props.currentUser.name}</h4>
-            <h5>your email is {props.currentUser.email}</h5>
+            <h1>Hello {props.currentUser.name}!</h1>
+            <h5>Email address: {props.currentUser.email}</h5>
             <p>{message}</p>
         </div>
     )
