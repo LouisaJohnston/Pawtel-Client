@@ -49,38 +49,38 @@ export default function Login(props) {
             }
         }
     }
-    const handleHostSubmit = async e => {
-        try {
-            e.preventDefault()
+    // const handleHostSubmit = async e => {
+    //     try {
+    //         e.preventDefault()
 
-            const requestBody = {
-                email: email,
-                password: password
-            }
+    //         const requestBody = {
+    //             email: email,
+    //             password: password
+    //         }
+    //         // changed hosts to users
+    //         const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/hosts/login`, requestBody)
+    //         console.log(response)
 
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/hosts/login`, requestBody)
-            console.log(response)
+    //         const { token } = response.data
 
-            const { token } = response.data
+    //         // save the response from token to  a local storage
+    //         localStorage.setItem('jwtToken', token)
 
-            // save the response from token to  a local storage
-            localStorage.setItem('jwtToken', token)
+    //         // decode jwtTooken
+    //         const decoded = jwt_decode(token)
+    //         console.log(decoded)
 
-            // decode jwtTooken
-            const decoded = jwt_decode(token)
-            console.log(decoded)
+    //         props.setCurrentUser(decoded)
 
-            props.setCurrentUser(decoded)
+    //     } catch (error) {
+    //         if (error.response.status === 400) {
+    //             setMessage(error.response.data.msg)
+    //         } else {
 
-        } catch (error) {
-            if (error.response.status === 400) {
-                setMessage(error.response.data.msg)
-            } else {
-
-                console.log(error)
-            }
-        }
-    }
+    //             console.log(error)
+    //         }
+    //     }
+    // }
 
     const userLogin = <form onSubmit={handleSubmit}>
         <label htmlFor="email-input">userEmail:</label>
@@ -101,25 +101,25 @@ export default function Login(props) {
         />
         <input type="submit" value="Login" />
     </form>
-    const hostLogin = <form onSubmit={handleHostSubmit}>
-        <label htmlFor="email-input">Email:</label>
-        <input
-            type="email"
-            id="email-input"
-            placeholder='email'
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-        />
-        <label htmlFor="password-input">Password:</label>
-        <input
-            type="password"
-            id="password-input"
-            placeholder='password'
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-        />
-        <input type="submit" value="Login" />
-    </form>
+    // const hostLogin = <form onSubmit={handleHostSubmit}>
+    //     <label htmlFor="email-input">Email:</label>
+    //     <input
+    //         type="email"
+    //         id="email-input"
+    //         placeholder='email'
+    //         onChange={e => setEmail(e.target.value)}
+    //         value={email}
+    //     />
+    //     <label htmlFor="password-input">Password:</label>
+    //     <input
+    //         type="password"
+    //         id="password-input"
+    //         placeholder='password'
+    //         onChange={e => setPassword(e.target.value)}
+    //         value={password}
+    //     />
+    //     <input type="submit" value="Login" />
+    // </form>
 
 
     if (props.currentUser && props.currentUser.isHost) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
@@ -129,8 +129,9 @@ export default function Login(props) {
         <div>
             <h1>Hello from Login Page</h1>
             <p>{message}</p>
-            {isHostSelected ? hostLogin : userLogin}
-            <button onClick={e => setIsHostSelected(!isHostSelected)}>HostLogin</button>
+            {/* {isHostSelected ? hostLogin : userLogin} */}
+            {userLogin}
+            {/* <button onClick={e => setIsHostSelected(!isHostSelected)}>HostLogin</button> */}
 
         </div>
     )
