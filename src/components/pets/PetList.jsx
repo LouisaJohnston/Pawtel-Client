@@ -14,7 +14,6 @@ export default function PetList() {
               }
             axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`, { headers: authHeaders })
             .then(response => {
-                    console.log(response.data.pets)
                     setMessage(response.data.msg)
                     setPets(response.data.pets)
                 })
