@@ -83,23 +83,33 @@ export default function Login(props) {
     // }
 
     const userLogin = <form onSubmit={handleSubmit}>
-        <label htmlFor="email-input">userEmail:</label>
-        <input
-            type="email"
-            id="email-input"
-            placeholder='email'
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-        />
-        <label htmlFor="password-input">Password:</label>
-        <input
-            type="password"
-            id="password-input"
-            placeholder='password'
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-        />
-        <input type="submit" value="Login" />
+        <div className="form-group">
+            <div>
+                <label htmlFor="email-input">Email:</label>
+                <input
+                    type="email"
+                    id="email-input"
+                    placeholder='email'
+                    onChange={e => setEmail(e.target.value)}
+                    value={email}
+                />
+
+            </div>
+
+            <div>
+
+                <label htmlFor="password-input">Password:</label>
+                <input
+                    type="password"
+                    id="password-input"
+                    placeholder='password'
+                    onChange={e => setPassword(e.target.value)}
+                    value={password}
+                />
+                <input type="submit" value="Login" />
+            </div>
+
+        </div>
     </form>
     // const hostLogin = <form onSubmit={handleHostSubmit}>
     //     <label htmlFor="email-input">Email:</label>
@@ -126,8 +136,8 @@ export default function Login(props) {
     if (props.currentUser && !props.currentUser.isHost) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
 
     return (
-        <div>
-            <h1>Hello from Login Page</h1>
+        <div className="form-container">
+            <h1>Login Page</h1>
             <p>{message}</p>
             {/* {isHostSelected ? hostLogin : userLogin} */}
             {userLogin}

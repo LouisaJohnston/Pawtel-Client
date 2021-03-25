@@ -95,31 +95,45 @@ export default function Register(props) {
 
 
     const userForm = <form onSubmit={handleSubmit}>
-        <label htmlFor="name-input">userName:</label>
-        <input
-            id="name-input"
-            type="text"
-            placeholder="enter your name"
-            onChange={e => setName(e.target.value)}
-            value={name}
-        />
-        <label htmlFor="email-input">email:</label>
-        <input
-            id="email-input"
-            type="text"
-            placeholder="enter your email"
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-        />
-        <label htmlFor="password-input">password:</label>
-        <input
-            id="password-input"
-            type="password"
-            placeholder="enter your password"
-            onChange={e => setPassword(e.target.value)}
-            value={password}
-        />
-        <input type="submit" value="Register" />
+        <div className="form-group">
+            <div classname="form">
+                <label htmlFor="name-input">Name: </label>
+                <input
+                    id="name-input"
+                    type="text"
+                    placeholder="enter your name"
+                    onChange={e => setName(e.target.value)}
+                    value={name}
+                />
+            </div>
+
+            <div classname="form">
+                <label htmlFor="email-input">Email: </label>
+                <input
+                    id="email-input"
+                    type="text"
+                    placeholder="enter your email"
+                    onChange={e => setEmail(e.target.value)}
+                    value={email}
+                />
+
+            </div>
+
+            <div classname="form">
+                <label htmlFor="password-input">Password: </label>
+                <input
+                    id="password-input"
+                    type="password"
+                    placeholder="enter your password"
+                    onChange={e => setPassword(e.target.value)}
+                    value={password}
+                />
+            </div>
+
+
+            <input type="submit" value="Register" />
+
+        </div>
 
     </form>
 
@@ -157,12 +171,15 @@ export default function Register(props) {
     // if user is logged in, redirect to pfofile page
     if (props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
     return (
-        <div>
-            <h1>Hello from Register</h1>
+        <div className="form-container">
+            <h1>Registration Page</h1>
             <p>{message}</p>
             {isHostSelected ? <p>You are signing up as a host</p> : <p>You are signing up as a user</p>}
+
             {userForm}
-            <button onClick={e => setIsHostSelected(!isHostSelected)}>Host</button>
+
+
+            <button onClick={e => setIsHostSelected(!isHostSelected)}>Switch</button>
         </div>
     )
 
