@@ -8,21 +8,22 @@ export default function Navbar(props) {
             <div className="navbar">
                 <Link to='/pets'>
                     pets
-            </Link>
+                </Link>
+
                 <Link to='/hotels'>
                     hotels
-            </Link>
+                </Link>
 
                 <Link to='/favorite'>
                     favs
-            </Link>
+                 </Link>
 
             </div>
             <div className="navbar">
 
                 <Link to='/profile'>
                     profile
-                    </Link>
+                </Link>
 
                 <Link to='/'>
                     <span onClick={props.handleLogout}>log out</span>
@@ -35,15 +36,28 @@ export default function Navbar(props) {
     const hostLoggedIn = (
         <>
             <div className="navbar">
+                <div>
+                    <Link to='/'>
+                        <h2>pawtel</h2>
+                    </Link>
+                </div>
+                <div>
+                    <Link to='/hotels'>
+                        hotels
+                    </Link>
+                </div>
+                <div>
+                    <Link to='/hostpage'>
+                        host profile
+                    </Link>
 
-                <Link to='/hostpage'>
-                    host profile
-            </Link>
+                    <Link to='/'>
+                        <span onClick={props.handleLogout}>log out</span>
+                    </Link>
+                </div>
 
-                <Link to='/'>
-                    <span onClick={props.handleLogout}>log out</span>
-                </Link>
             </div>
+
         </>
     )
 
@@ -53,13 +67,13 @@ export default function Navbar(props) {
             <div>
                 <Link to='/hotels'>
                     hotels
-            </Link>
+                </Link>
                 <Link to='/register'>
                     register
-            </Link>
+                </Link>
                 <Link to='/login'>
                     login
-            </Link>
+                </Link>
             </div>
 
         </>
@@ -73,7 +87,6 @@ export default function Navbar(props) {
             <Link to='/'>
                 <h2>pawtel</h2>
             </Link>
-
             {props.currentUser ? loggedIn : loggedOut}
         </nav>
     )
