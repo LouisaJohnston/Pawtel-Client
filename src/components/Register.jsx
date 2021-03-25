@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import Profile from './Profile'
+import HostPage from './HostPage'
 
 export default function Register(props) {
     // some state for the controlled form
@@ -167,7 +168,7 @@ export default function Register(props) {
     // </form>
 
 
-
+    if (props.currentUser && props.currentUser.isHost) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
     // if user is logged in, redirect to pfofile page
     if (props.currentUser) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
     return (
