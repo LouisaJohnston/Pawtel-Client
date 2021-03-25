@@ -58,7 +58,7 @@ export default function Login(props) {
                 password: password
             }
 
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/hosts/login`, requestBody)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/login`, requestBody)
             console.log(response)
 
             const { token } = response.data
