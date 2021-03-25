@@ -4,18 +4,12 @@ import axios from 'axios'
 
 export default function PetList() {
     const [pets, setPets] = useState([])
-    const [newPetNameInput, setNewPetNameInput] = useState ('')
-
-    // useEffect(() => {
-    //     try {
-    //         axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`)
-    //             .then(response => {
-    //                 setPets(response.data)
-    //             })
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }, [])
+    const [pet_name, setPetName] = useState('')
+    const [breed, setBreed] = useState('')
+    const [age, setAge] = useState('')
+    const [weight, setWeight] = useState('')
+    const [special_needs, setSpecialNeeds] = useState('')
+    const [medications, setMedications] = useState('')
 
     useEffect(() => {
         try {
@@ -28,18 +22,25 @@ export default function PetList() {
         }
     }, [])
 
-    const  handleNewPetNameChange = e => {
-        setNewPetNameInput(e.target.value)
-    }
-
     const handleNewPetSubmit = async(e) => {
         e.preventDefault()
+        const requestBody = {
+            pet_name: pet_name,
+            breed: breed,
+            age: age,
+            weight: weight,
+            special_needs: special_needs,
+            medications: medications
+        }
         try {
-            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`, requestBody)
         } catch (err) {
             console.log(err)
         }
+    }
 
+    const handleNewPetNameChange = e => {
+        setPetName(e.target.value)
     }
 
     return (
@@ -63,7 +64,6 @@ export default function PetList() {
             </div>
             <Link to={{
                 pathname: '/newpet',
-                state: pets
             }}
             key={pets}
             >
