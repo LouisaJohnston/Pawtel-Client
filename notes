@@ -2,11 +2,11 @@ kathy's notes:
 
 to do
 - create favs hotels (create it in the hotels component?)
-- change up navbar view as a host
 
 done
 - style forms
 - redirect host to hostpage 
+- change up navbar view as a host
 
 
 favs
@@ -28,3 +28,18 @@ favoriteComponent={AddFavorites}
 
 --in HotelList
 include <FavoriteComponent>
+
+in the backend:
+make many:many relationship for hotels, .populate
+
+user will have a field of hotel and fav hotel ref Hotel
+
+to query hotels through users, put field in the hotel 
+
+await user.findbyid.populate(own hotels, favorite hotels)
+
+
+1. examine data we are getting from hotel( id, etc)
+2. what you wanna put to the embedded favs to user
+3. fav button -> get info from hotel when i check own
+4. query users
