@@ -1,0 +1,13 @@
+.form-container {
+    /* background-color: skyblue; */
+    height: 400px;
+    width: 500px;
+    align-items: center;
+}
+input {
+    height: 30px;
+    width: 250px;
+}
+.form-button {
+    margin-top: 10px;
+}

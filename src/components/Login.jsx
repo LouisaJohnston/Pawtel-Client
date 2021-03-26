@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
 import Profile from './Profile'
 import HostPage from './HostPage'
-// import HostPage from './HostPage'
+
 
 
 export default function Login(props) {

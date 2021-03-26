@@ -59,8 +59,6 @@ export default function HotelList() {
             <h1>Browse dog hotels in your area:</h1>
             </div>
             <div className='container'>
-                
-            <h1>Browse pet friendly hotels in your area:</h1>
             {hotels.map((hotel, i) => {
                 return (
                     <div key={i} className="cell">
