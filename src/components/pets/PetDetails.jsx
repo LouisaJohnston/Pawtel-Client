@@ -5,7 +5,7 @@ import axios from 'axios'
 export default function PetDetails(props) {
     const [deletedPet, setDeletedPet] = useState(false)
 
-    const handleUpdate =(e) => {
+    const handleUpdate = async (e) => {
         e.preventDefault()
         const requestBody = {
             // pet_name: pet_name,
@@ -16,7 +16,7 @@ export default function PetDetails(props) {
             // medications: medications
         }
         try {
-            axios.update(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`, requestBody)
+            await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`, requestBody)
         } catch (err) {
             console.log(err)
         }
@@ -29,7 +29,8 @@ export default function PetDetails(props) {
             const authHeaders = {
                 'Authorization': token
               }
-            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`, { headers: authHeaders })
+            const boop = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets/${props.location.state._id}`, { headers: authHeaders })
+            console.log(boop)
             setDeletedPet(true)
         } catch (err) {
             console.log(err)
@@ -46,7 +47,7 @@ export default function PetDetails(props) {
             <h4> {props.location.state.special_needs} </h4>
             <h4> {props.location.state.medications} </h4>
 
-            <form onSubmit={props.location.state.handleUpdate}>
+            <form onSubmit={handleUpdate}>
                 <input type="submit" value="Update Pet"></input>
             </form>
 
