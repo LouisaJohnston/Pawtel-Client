@@ -79,9 +79,9 @@ export default function Login(props) {
 
         </div>
     </form>
-  
-  if (props.currentUser && !props.currentUser.isHost) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
-  if (props.currentUser && props.currentUser.isHost) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
+
+    if (props.currentUser && !props.currentUser.isHost) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
+    if (props.currentUser && props.currentUser.isHost) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
 
     return (
         <div className="form-container">

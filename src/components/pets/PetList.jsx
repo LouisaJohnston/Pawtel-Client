@@ -11,14 +11,14 @@ export default function PetList() {
             const token = localStorage.getItem('jwtToken')
             const authHeaders = {
                 'Authorization': token
-              }
+            }
             axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets`, { headers: authHeaders })
-            .then(response => {
+                .then(response => {
                     setMessage(response.data.msg)
                     setPets(response.data.pets)
                 })
         } catch (error) {
-            if(error.response.status === 400){
+            if (error.response.status === 400) {
                 setMessage(error.response.data.msg)
             }
             console.log(error)
@@ -33,11 +33,11 @@ export default function PetList() {
                 {pets.map((pet, i) => {
                     return (
                         <div key={i}>
-                            <Link to={{ 
-                                pathname: '/pet', 
-                                state: pet 
+                            <Link to={{
+                                pathname: '/pet',
+                                state: pet
                             }}
-                            key={pet.pet_name}
+                                key={pet.pet_name}
                             >
                                 {pet.pet_name}
                             </Link>

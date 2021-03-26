@@ -42,75 +42,75 @@ function Home() {
   return (
     <div>
 
-    <Router>
-      <header>
-        <Navbar currentUser={currentUser} handleLogout={handleLogout} />
-      </header>
+      <Router>
+        <header>
+          <Navbar currentUser={currentUser} handleLogout={handleLogout} />
+        </header>
 
-      <div className="route">
-        <Switch>
-          <Route exact path='/' component={Welcome} />
+        <div className="route">
+          <Switch>
+            <Route exact path='/' component={Welcome} />
 
-          <Route
-            path='/register'
-            render={(props) => <Register {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/register'
+              render={(props) => <Register {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
-          <Route
-            path='/login'
-            render={(props) => <Login {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/login'
+              render={(props) => <Login {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
-          <Route
-            path='/pets'
-            render={(props) => <PetList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/pets'
+              render={(props) => <PetList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
-          <Route
-            path='/pet'
-            render={({ location }) => <PetDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/pet'
+              render={({ location }) => <PetDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
-          <Route
-            path='/newpet'
-            render={({ location }) => <NewPet location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/newpet'
+              render={({ location }) => <NewPet location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
-          <Route
-            path='/hotels'
-            render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
-          <Route
-            path='/hosthotels'
-            render={(props) => <HostHotel {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/hotels'
+              render={(props) => <HotelList {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
+            <Route
+              path='/hosthotels'
+              render={(props) => <HostHotel {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
-          <Route
-            path='/hotel'
-            render={({ location }) => <HotelDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/hotel'
+              render={({ location }) => <HotelDetails location={location} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
 
-          <Route
-            path='/favorite'
-            render={(props) => <Favorite {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
-          />
+            <Route
+              path='/favorite'
+              render={(props) => <Favorite {...props} currentUser={currentUser} setCurrentUser={setCurrentUser} />}
+            />
 
-          <Route
-            path='/profile'
-            render={(props) => currentUser
-              ? <Profile {...props} handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />
-              : <Redirect to='/login' />}
-          />
-          <Route
-            path='/hostpage'
-            render={(props) => currentUser
-              ? <HostPage {...props} handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />
-              : <Redirect to='/hostlogin' />}
-          />
-        </Switch>
-      </div>
-    </Router>
+            <Route
+              path='/profile'
+              render={(props) => currentUser
+                ? <Profile {...props} handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+                : <Redirect to='/login' />}
+            />
+            <Route
+              path='/hostpage'
+              render={(props) => currentUser
+                ? <HostPage {...props} handleLogout={handleLogout} currentUser={currentUser} setCurrentUser={setCurrentUser} />
+                : <Redirect to='/hostlogin' />}
+            />
+          </Switch>
+        </div>
+      </Router>
     </div>
 
   )

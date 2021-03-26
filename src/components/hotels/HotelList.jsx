@@ -3,13 +3,9 @@ import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import '../../hotelList.css'
 
-
-
 export default function HotelList() {
     const [hotels, setHotels] = useState([])
     const [redirect, setRedirect] = useState(false)
-    // const [favorites, setFavorites] = useState([])
-
 
     useEffect(() => {
         try {
@@ -19,7 +15,7 @@ export default function HotelList() {
             }
             axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels`, { headers: authHeaders })
                 .then(response => {
-                    console.log(response.data)
+                    // console.log(response.data)
                     setHotels(response.data)
                 })
                 .catch(error => console.log(error))
@@ -27,11 +23,6 @@ export default function HotelList() {
             console.log(error)
         }
     }, [])
-
-    // const AddFavoriteHotels = (hotel) => {
-    //     const newFavoriteList = [...favorites, hotel]
-    //     setFavorites(newFavoriteList)
-    // }
 
     const handleFavorites = async (e, i) => {
         e.preventDefault()
@@ -56,29 +47,31 @@ export default function HotelList() {
     return (
         <div>
             <div>
-            <h1>Browse dog hotels in your area:</h1>
+                <h1>Browse dog hotels in your area:</h1>
             </div>
             <div className='container'>
-            {hotels.map((hotel, i) => {
-                return (
-                    <div key={i} className="cell">
-                        <Link
-                            to={{
-                                pathname: '/hotel',
-                                state: hotel
-                            }}
-                            key={hotel.hotel_name}
-                        >
-                            {hotel.hotel_name}
-                        </Link>
-                        <form onSubmit={(e) => handleFavorites(e, i)}>
 
-                            <input type="submit" value="favorite" />
-                        </form>
-                    </div>
-                )
-            })}
-                
+                <h1>Browse pet friendly hotels in your area:</h1>
+                {hotels.map((hotel, i) => {
+                    return (
+                        <div key={i} className="cell">
+                            <Link
+                                to={{
+                                    pathname: '/hotel',
+                                    state: hotel
+                                }}
+                                key={hotel.hotel_name}
+                            >
+                                {hotel.hotel_name}
+                            </Link>
+                            <form onSubmit={(e) => handleFavorites(e, i)}>
+
+                                <input type="submit" value="favorite" />
+                            </form>
+                        </div>
+                    )
+                })}
+
             </div>
         </div>
     )
