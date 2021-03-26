@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import '../../hotelList.css'
 
 export default function HotelList() {
     const [hotels, setHotels] = useState([])
@@ -19,10 +20,14 @@ export default function HotelList() {
 
     return (
         <div>
+            <div>
             <h1>Browse dog hotels in your area:</h1>
+            </div>
+            <div className='container'>
+                
             {hotels.map((hotel, i) => {
                 return (
-                    <div key={i}>
+                    <div key={i} className="cell">
                         <Link
                             to={{
                                 pathname: '/hotel',
@@ -35,6 +40,8 @@ export default function HotelList() {
                     </div>
                 )
             })}
+                
+            </div>
         </div>
     )
 

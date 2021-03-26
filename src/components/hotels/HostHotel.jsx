@@ -14,7 +14,7 @@ export default function HostHotel(props) {
 
 
     const data = useLocation()
-    console.log(data.state.hotel._id)
+    console.log(data.state.hotel)
 
     const handleEdit = () => {
         setIsEditing(true)
@@ -32,7 +32,7 @@ export default function HostHotel(props) {
             phone_number: phoneNumber,
             email: email
         })
-        console.log(responseData)
+        console.log(responseData.data)
     }
 
 

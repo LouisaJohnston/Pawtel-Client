@@ -6,6 +6,13 @@ import Login from './Login'
 export default function HostPage(props) {
     const [message, setMessage] = useState('')
     const [hotels, setHotels] = useState([])
+    const [isEditing, setIsEditing] = useState(false)
+    const [hotelName, setHotelName] = useState('')
+    const [zipcode, setZipcode] = useState('')
+    const [speciality, setSpeciality] = useState('')
+    const [waightLimit, setWaightLimit] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [email, setEmail] = useState('')
 
     useEffect(() => {
         const secretMessage = async function () {
@@ -19,13 +26,8 @@ export default function HostPage(props) {
 
                 // GET /auth-locked with auth header using token
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/auth-locked`, { headers: authHeaders })
-                const responseData = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels/:id`, { headers: authHeaders })
-                console.log(response.data)
-                console.log(responseData.data)
                 const data = response.data.hotels
                 setMessage(response.data.msg)
-                console.log(response.data.hotels)
-                console.log(data)
                 setHotels(prev => [...data])
                 
                 
@@ -38,16 +40,44 @@ export default function HostPage(props) {
                     console.log(error)
                 }
             }
+        
+        
         }
         secretMessage()
     }, [props])
-    const handleEdit = () => {
+    
+    const handleAdd = () => {
 
         console.log('Edited')
     }
-    const handleDelete = () => {
-        console.log('Deleted')
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        
+        const token = localStorage.getItem('jwtToken')
+        const authHeaders = {
+            'Authorization': token
+          }
+        const requestBody = {
+            hotel_name: hotelName,
+            zipcode: zipcode,
+            speciality: speciality,
+            weight_limit_lb: waightLimit,
+            phone_number: phoneNumber,
+            email: email
+        }
+        try {
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels`, requestBody, { headers: authHeaders })
+            setMessage(response.data.msg)
+            console.log(response.data)
+        } catch (err) {
+            if(err.response.status === 400){
+                setMessage(err.response.data.msg)
+            }
+            console.log(err)
+        }
     }
+
    const mappedData = hotels.map((hotel, index) => {
        return (
            <div id={index}>
@@ -72,8 +102,31 @@ export default function HostPage(props) {
             </div>
             <div>
                 {mappedData}
-                <button onClick={handleEdit}>Edit</button>
-                <button onClick={handleDelete}>Delete</button>
+                <button onClick={handleAdd}>Add</button>
+            </div>
+            <div>
+                <form  onSubmit={handleSubmit}>
+                    <label htmlFor="hotel_name" >hotel_name</label>
+                    <input type="text" id="hotel_name" onChange={(e) => setHotelName(e.target.value)}/>
+        
+                    <label htmlFor="hotel_zipcode">Zipcode</label>
+                    <input type="text" id="hotel_zipcode" onChange={(e) => setZipcode(e.target.value)}/>
+        
+                    <label htmlFor="speciality">specialty</label>
+                    <input type="text" id="speciality" onChange={(e) => setSpeciality(e.target.value)}/>
+        
+                    <label htmlFor="weight_limit_lb">weight_limit_lb</label>
+                    <input type="text" id="weight_limit_lb" onChange={(e) => setWaightLimit(e.target.value)}/>
+        
+                    <label htmlFor="phone_number">phone_number</label>
+                    <input type="text" id="phone_number" onChange={(e) => setPhoneNumber(e.target.value)}/>
+        
+                    <label htmlFor="email">email</label>
+                    <input type="text" id="email" onChange={(e) => setEmail(e.target.value)}/>
+        
+                    <input type="submit" value="submit"/>
+        
+                </form>)
             </div>
             <p>{message}</p>
         </div>
