@@ -11,7 +11,6 @@ export default function Login(props) {
     // home state for controlled form
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [isHostSelected, setIsHostSelected] = useState(false)
 
     // error message for login 
     const [message, setMessage] = useState('')
