@@ -3,8 +3,6 @@ import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import '../../hotelList.css'
 
-
-
 export default function HotelList() {
     const [hotels, setHotels] = useState([])
     const [redirect, setRedirect] = useState(false)

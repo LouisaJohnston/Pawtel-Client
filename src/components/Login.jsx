@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
 import Profile from './Profile'
 import HostPage from './HostPage'
-// import HostPage from './HostPage'
+
 
 
 export default function Login(props) {
@@ -79,9 +79,9 @@ export default function Login(props) {
 
         </div>
     </form>
-  
-  if (props.currentUser && !props.currentUser.isHost) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
-  if (props.currentUser && props.currentUser.isHost) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
+
+    if (props.currentUser && !props.currentUser.isHost) return <Redirect to='/profile' component={Profile} currentUser={props.currentUser} />
+    if (props.currentUser && props.currentUser.isHost) return <Redirect to='/hostpage' component={HostPage} currentUser={props.currentUser} />
 
     return (
         <div className="form-container">
