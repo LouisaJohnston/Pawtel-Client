@@ -19,7 +19,9 @@ export default function HostPage(props) {
 
                 // GET /auth-locked with auth header using token
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/auth-locked`, { headers: authHeaders })
+                const responseData = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/hotels/:id`, { headers: authHeaders })
                 console.log(response.data)
+                console.log(responseData.data)
                 const data = response.data.hotels
                 setMessage(response.data.msg)
                 console.log(response.data.hotels)
@@ -39,14 +41,20 @@ export default function HostPage(props) {
         }
         secretMessage()
     }, [props])
+    const handleEdit = () => {
+
+        console.log('Edited')
+    }
+    const handleDelete = () => {
+        console.log('Deleted')
+    }
    const mappedData = hotels.map((hotel, index) => {
        return (
            <div id={index}>
                 <Link 
-                    key={hotel.hotel_name}
                     to={{
                             pathname: '/hosthotels',
-                            state: hotel
+                            state:{ hotel: hotel}
                         }}
 
                 >
@@ -58,13 +66,15 @@ export default function HostPage(props) {
 
     return (
         <div>
+            <div>
             <h1>Hello {props.currentUser.name}!</h1>
             <h5>Email address: {props.currentUser.email}</h5> 
-            
-            <ul>
+            </div>
+            <div>
                 {mappedData}
-            </ul>
-    
+                <button onClick={handleEdit}>Edit</button>
+                <button onClick={handleDelete}>Delete</button>
+            </div>
             <p>{message}</p>
         </div>
     )
