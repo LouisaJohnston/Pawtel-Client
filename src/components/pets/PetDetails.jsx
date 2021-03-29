@@ -12,7 +12,7 @@ export default function PetDetails(props) {
     const [special_needs, setSpecialNeeds] = useState('')
     const [medications, setMedications] = useState('')
 
-    const handleEdit = (e) => {
+    const handleForm = (e) => {
         e.preventDefault()
         setIsEditing(true)
     }
@@ -33,7 +33,7 @@ export default function PetDetails(props) {
                 medications: medications
             }
             await axios.put(`${process.env.REACT_APP_SERVER_URL}/api-v1/pets/${props.location.state._id}`, requestBody, { headers: authHeaders })
-            // window.location.reload()
+            window.location.reload()
         } catch (err) {
             console.log(err)
         }
@@ -121,16 +121,16 @@ export default function PetDetails(props) {
     return (
         <div key={props.location.state.pet}>
             <h2> {props.location.state.pet_name} </h2>
-            <h4> {props.location.state.breed} </h4>
-            <h4> {props.location.state.age} </h4>
-            <h4> {props.location.state.weight} </h4>
-            <h4> {props.location.state.special_needs} </h4>
-            <h4> {props.location.state.medications} </h4>
+            <h4> Breed: {props.location.state.breed} </h4>
+            <h4> Age: {props.location.state.age} </h4>
+            <h4> Weight (lbs): {props.location.state.weight} </h4>
+            <h4> Special Needs: {props.location.state.special_needs} </h4>
+            <h4> Medications: {props.location.state.medications} </h4>
 
             <form onSubmit={handleDelete}>
                 <input type="submit" value="Delete Pet"></input>
             </form>
-            <form onSubmit={handleEdit}>
+            <form onSubmit={handleForm}>
                 <input type="submit" value="Update Pet"></input>
             </form>
             {editForm}
