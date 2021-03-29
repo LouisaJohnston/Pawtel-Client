@@ -16,6 +16,8 @@ import Favorite from './components/Favorite'
 import HostPage from './components/HostPage'
 import './Home.css';
 import HostHotel from './components/hotels/HostHotel'
+// import Footer from './components/Footer'
+
 
 
 function Home() {
@@ -46,6 +48,10 @@ function Home() {
         <header>
           <Navbar currentUser={currentUser} handleLogout={handleLogout} />
         </header>
+
+        {/* <footer>
+          <Footer />
+        </footer> */}
 
         <div className="route">
           <Switch>
