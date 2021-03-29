@@ -50,11 +50,9 @@ export default function HotelList() {
                 <h1>Browse dog hotels in your area:</h1>
             </div>
             <div className='container'>
-
-                <h1>Browse pet friendly hotels in your area:</h1>
                 {hotels.map((hotel, i) => {
                     return (
-                        <div key={i} className="cell">
+                        <div key={i} className="cell" style={{backgroundImage: `url("${hotel.image_url}")`}}>
                             <Link
                                 to={{
                                     pathname: '/hotel',
@@ -62,12 +60,17 @@ export default function HotelList() {
                                 }}
                                 key={hotel.hotel_name}
                             >
+                                <div>
+                                {/* <img src={hotel.image_url} alt="hotelImageUrl" height="150px" width="150px"/>  */}
+                                </div>
                                 {hotel.hotel_name}
                             </Link>
-                            <form onSubmit={(e) => handleFavorites(e, i)}>
-
-                                <input type="submit" value="favorite" />
-                            </form>
+                            <div>
+                                <form onSubmit={(e) => handleFavorites(e, i)}>
+                                    <input type="submit" value="favorite" />
+                                </form>
+                            
+                            </div>
                         </div>
                     )
                 })}

@@ -17,7 +17,7 @@ export default function HostHotel(props) {
     console.log(data.state.hotel)
 
     const handleEdit = () => {
-        setIsEditing(true)
+        setIsEditing(!isEditing)
     }
 
 
@@ -37,7 +37,7 @@ export default function HostHotel(props) {
 
 
     const editForm = isEditing ? (
-    <form  onSubmit={handleSubmit}>
+    <form  className="hotel-Form" onSubmit={handleSubmit}>
         <label htmlFor="hotel_name" >hotel_name</label>
         <input type="text" id="hotel_name" onChange={(e) => setHotelName(e.target.value)}/>
         
@@ -56,22 +56,29 @@ export default function HostHotel(props) {
         <label htmlFor="email">email</label>
         <input type="text" id="email" onChange={(e) => setEmail(e.target.value)}/>
         
+        <label htmlFor="submit">.</label>
         <input type="submit" value="submit"/>
         
     </form>)
     : ""
     return (
-        <div>
-            <p>Hello</p>
+        <div >
+            <div>
+            <img src={data.state.hotel.image_url} alt="imageUrl" height="150px" width="150px" />
             <h4>{data.state.hotel.hotel_name}</h4>
             <h4>{data.state.hotel.zipcode}</h4>
             <h4>{data.state.hotel.specialty}</h4>
             <h4>{data.state.hotel.weight_limit_lb}</h4>
             <h4>{data.state.hotel.phone_number}</h4>
             <h4>{data.state.hotel.email}</h4>
-            <button onClick={handleEdit}> edit</button>
+            <button className="edit-button button" onClick={handleEdit}> edit</button>
+            </div>
+            <div>
             {editForm}
+            </div>
+            <div>
             <Link to='/hostpage'>Back to hotels</Link> 
+            </div>
         </div>
         
     )

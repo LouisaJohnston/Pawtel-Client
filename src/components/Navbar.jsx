@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-
+import hotelLogo from '../../src/hotelLogo.png'
 export default function Navbar(props) {
 
 
@@ -85,7 +85,10 @@ export default function Navbar(props) {
     return (
         <nav className="navbar">
             <Link to='/'>
+                <div>
+                <img src={hotelLogo} alt="Logo" className="nav-logo"/>
                 <h2>pawtel</h2>
+                </div>
             </Link>
             {props.currentUser ? loggedIn : loggedOut}
         </nav>
