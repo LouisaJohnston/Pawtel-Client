@@ -4,9 +4,11 @@
 
 export default function Profile() {
 
+
     return (
         <div>
-            <h1>Hello from Profile</h1>
+            <h1>Welcome to your profile page</h1>
+            {/* <h2>Welcome {props.currentUser.name} </h2> */}
         </div>
 
     )
