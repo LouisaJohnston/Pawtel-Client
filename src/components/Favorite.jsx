@@ -36,8 +36,12 @@ export default function Favorite() {
                     return (
                         <div key={i}>
 
-                            {favorite.hotel_name}
-                            {favorite.zipcode}
+                            <div>
+                                {favorite.hotel_name}
+                            </div>
+                            <div>
+                                {favorite.zipcode}
+                            </div>
 
                         </div>
                     )
