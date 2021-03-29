@@ -51,11 +51,12 @@ Paw-tel is a full-stack application utiltizing MERN. In this application, users 
 * hotel component
 
 #### Wednesday
-* MVP
+* user and host pages
 
 #### Thursday
 * debugging
 * css/boot
+* MVP
 
 #### Friday
 * debugging

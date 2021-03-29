@@ -16,6 +16,8 @@ import Favorite from './components/Favorite'
 import HostPage from './components/HostPage'
 import './Home.css';
 import HostHotel from './components/hotels/HostHotel'
+import Footer from './components/Footer'
+
 
 
 function Home() {
@@ -110,6 +112,11 @@ function Home() {
             />
           </Switch>
         </div>
+
+        <footer>
+          <Footer currentUser={currentUser} handleLogout={handleLogout} />
+        </footer>
+
       </Router>
     </div>
 

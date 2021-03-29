@@ -43,3 +43,4 @@ await user.findbyid.populate(own hotels, favorite hotels)
 2. what you wanna put to the embedded favs to user
 3. fav button -> get info from hotel when i check own
 4. query users
+
