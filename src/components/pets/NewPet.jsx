@@ -31,7 +31,6 @@ export default function NewPet (props) {
             .then(response => {
                 setMessage(response.data.msg)
             })
-            setNewPet(true)
         } catch (err) {
             if(err.response.status === 400){
                 setMessage(err.response.data.msg)
@@ -39,7 +38,7 @@ export default function NewPet (props) {
             console.log(err)
         }
     }
-    if (newPet) return <Redirect to='/pets' />
+    
     return (
             <div>
                 <h1>Add a New Pet:</h1>
