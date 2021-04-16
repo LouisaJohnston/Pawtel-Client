@@ -86,8 +86,14 @@ export default function Login(props) {
     return (
         <div className="form-container">
             <h1>Login Page</h1>
-            <p>{message}</p>
-            {userLogin}
+            <div>
+                <p>{message}</p>
+
+            </div>
+            <div>
+
+                {userLogin}
+            </div>
         </div>
     )
 
