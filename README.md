@@ -10,57 +10,16 @@ Paw-tel is a full-stack application utiltizing MERN. In this application, users 
 * (AAU) I want to be able to be able to find an appropriate “pet air bnb” in Seattle for my pet. 
 * (AAU) I want to be able to browse and favorite housing profiles.
 
+## Images
 
-## Group Roles
+![main](/public/imgs/homepage.PNG)
+![main](/public/imgs/register.PNG)
+![main](/public/imgs/petpage.PNG)
 
-### Dagm
-* User Authentication
-* User component
-* Testing routes
+## Installation
 
-### Kathy
-* Setting up react and the navagation bar
-* boilerplate css 
-* git master
-
-### Louisa
-* Hotels and pets components
-* Testing routes
-* skeleton
-
-## Sprints
-
-#### Friday 3/19/21
-* Soft/hard pitches
-* Test APIs
-* Complete ReadMe - routes, schemas, sprints
-* Make wireframes
-* Create server and client side folders
-* Assign roles
-
-#### Saturday and Sunday
-* Research 
-* plan basic crud routes
-
-#### Monday 
-* Render user side
-* Work on user routes 
-
-#### Tuesday
-* pets component
-* hotel component
-
-#### Wednesday
-* user and host pages
-
-#### Thursday
-* debugging
-* css/boot
-* MVP
-
-#### Friday
-* debugging
-* css/boot
+* Fork and clone both the client and server repos
+* npm install packages and dependencies
 
 ## Routes
 ### RESTful routing chart for Pet Hotel Hosts
@@ -119,7 +78,7 @@ DELETE | /hotels/:id | Removes a pet from the host's hotel list | Redirect to /h
 #### Technologies
 
 * Front-end: React
-* Backend: Mongoose, MongoDB, Express, NodeJS, bcryptjs,jsonwebtoken
+* Backend: Mongoose, MongoDB, Express, NodeJS, bcryptjs, jsonwebtoken
 
 #### APIs
 * https://thedogapi.com/ (10k requests/month)
@@ -134,5 +93,9 @@ DELETE | /hotels/:id | Removes a pet from the host's hotel list | Redirect to /h
 * Search by location
 
 ## Resources
+All images were provided by Unsplash.
+
 1. Materials-ui | https://material-ui.com/
 2. NavLink | https://reactrouter.com/web/api/NavLink
+
+Created by the Power Team.
