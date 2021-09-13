@@ -101,5 +101,3 @@ All images were provided by Unsplash.
 
 1. Materials-ui | https://material-ui.com/
 2. NavLink | https://reactrouter.com/web/api/NavLink
-
-Created by the Power Team.
